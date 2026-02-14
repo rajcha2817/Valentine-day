@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Memory Videos</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9ec4, #ff4f87);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Header */
+.top-header {
+    width: 100%;
+    padding: 25px 0;
+    background: linear-gradient(90deg, #ff4f87, #ff9ec4);
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: rgba(255, 255, 255, 0.8);
+    animation: floatUp 6s linear infinite;
+    font-size: 20px;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) translateX(0); opacity: 1; }
+    100% { transform: translateY(-700px) translateX(40px); opacity: 0; }
+}
+
+/* Video Grid */
+.video-gallery {
+    display: grid;
+    max-width: 1150px;
+    margin: 30px auto;
+    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+/* Video Frame */
+.video-box {
+    background: white;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    transition: 0.3s;
+}
+
+.video-box:hover {
+    transform: scale(1.04);
+}
+
+.video-box iframe, 
+.video-box video {
+    width: 100%;
+    border-radius: 20px;
+    height: 220px;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-block;
+    margin: 35px auto;
+    background: #ff2f7a;
+    color: white;
+    padding: 12px 28px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255,0,150,0.8);
+    transition: 0.3s;
+    position: relative;
+    z-index: 1000;
+}
+
+.back-btn:hover {
+    background: #ff0f60;
+    transform: scale(1.07);
+}
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="top-header">🎥 Our Beautiful Video Memories</div>
+
+<!-- Video Grid -->
+<div class="video-gallery">
+
+    <!-- YouTube Example -->
+    <div class="video-box">
+        <video controls>
+            <source src="images/yt1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Local MP4 Example -->
+    <div class="video-box">
+        <video controls>
+            <source src="images/yt2.mp4" type="video/mp4">
+        </video>
+    </div>
+    <!-- Local MP4 Example -->
+    <div class="video-box">
+        <video controls>
+            <source src="images/vid.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Local MP4 Example -->
+    <div class="video-box">
+        <video controls>
+            <source src="images/vid1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="video-box">
+        <video controls>
+            <source src="images/yt3.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="video-box">
+        <video controls>
+            <source src="images/yt4.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+</div>
+
+<!-- Back to Home -->
+<a href="index.html" class="back-btn">⬅ Back to Home</a>
+
+<!-- Floating Hearts -->
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
